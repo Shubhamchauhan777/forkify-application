@@ -20,7 +20,6 @@ async function controlRecipes() {
   try {
     //render spinner
     let id = window.location.hash.slice(1);
-    console.log(id);
     if (!id) return;
     recipeView.loadSpinner();
     //update results view to mark slected search result
@@ -46,7 +45,7 @@ async function controlSearchResult() {
     //3) Render search results
     // resultsView.render(model.state.search.results);
     resultsView.render(model.getsearchResultsPage());
-    console.log(model.state);
+
     //render pagination buttons
     paginationView.render(model.state.search);
   } catch (err) {
