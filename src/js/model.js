@@ -46,7 +46,7 @@ export async function renderRecipe(id) {
 export async function loadSearchResult(query) {
   try {
     const data = await resolveJSON(`${API_URL}?search=${query}&key=${KEY}`);
-    console.log(data);
+
     state.search.results = data.data.recipes.map(rec => {
       return {
         id: rec.id,
@@ -135,7 +135,6 @@ export const uploadRecipe = async function (newRecipe) {
     };
     const data = await sendJSON(`${API_URL}?key=${KEY}`, recipe);
     state.recipe = createrecipeObject(data);
-    console.log(state.recipe);
     addBookmark(state.recipe);
   } catch (error) {
     throw error;
